@@ -14,6 +14,10 @@
     "icon",
     "CSS animation"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fxedel/toggle-icon.git"
+  },
   "dependencies": {
     "iron-checked-element-behavior": "PolymerElements/iron-checked-element-behavior#^1.0.0",
     "paper-behaviors": "PolymerElements/paper-behaviors#^1.0.0",
