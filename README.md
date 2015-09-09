@@ -7,7 +7,9 @@ toggle-icon
 ## Get the code
 If you have bower installed, run:
 
-> bower install toggle-icon
+```
+bower install toggle-icon
+```
 
 Else, you can clone this repository.
 
