@@ -20,6 +20,7 @@ Feel free to open an issue if you notice something that can be improved.
 1. Fork the repository.
 2. Commit your changes to your fork.
 3. Create a pull request.
+
 I really appreciate any contribution :)
 
 ## License
