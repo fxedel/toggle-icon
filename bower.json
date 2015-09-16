@@ -1,6 +1,6 @@
 {
   "name": "toggle-icon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "Creative Commons Share Alike 4.0",
   "description": "An extremly powerful and customizable switch that looks like a paper-icon-button build for the Polymer framework",
   "main": "toggle-icon.html",
