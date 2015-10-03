@@ -1,12 +1,10 @@
 {
   "name": "toggle-icon",
   "version": "1.0.1",
-  "license": "Creative Commons Share Alike 4.0",
-  "description": "An extremly powerful and customizable switch that looks like a paper-icon-button build for the Polymer framework",
-  "main": "toggle-icon.html",
-  "author": [
+  "authors": [
     "Felix Edelmann"
   ],
+  "description": "An extremly powerful and customizable switch that looks like a paper-icon-button build for the Polymer framework",
   "keywords": [
     "web-components",
     "polymer",
@@ -14,6 +12,9 @@
     "icon",
     "CSS animation"
   ],
+  "main": "toggle-icon.html",
+  "license": "Creative Commons Share Alike 4.0",
+  "homepage": "http://fxedel.github.io/toggle-icon/toggle-icon/",
   "repository": {
     "type": "git",
     "url": "git://github.com/fxedel/toggle-icon.git"
