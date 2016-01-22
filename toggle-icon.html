@@ -68,7 +68,6 @@ The mixins are actually applied to the container, not to the element (:host) its
     :host {
       display: inline-block;
       position: relative;
-      padding: 8px;
       transition: all .3s;
       @apply(--toggle-icon);
     }
@@ -103,8 +102,8 @@ The mixins are actually applied to the container, not to the element (:host) its
     </paper-icon-button>
     <paper-icon-button
       id="active"
-      icon="{{_computeIconActive(iconActive)}}"
-      src="{{_computeIconSrcActive(iconSrcActive)}}"
+      icon="{{_computeIconActive(icon,iconActive)}}"
+      src="{{_computeIconSrcActive(iconSrc,iconSrcActive)}}"
       disabled$="{{disabled}}">
     </paper-icon-button>
   </template>
@@ -146,6 +145,7 @@ The mixins are actually applied to the container, not to the element (:host) its
        */
       iconActive: {
         type: String,
+        value: ''
       },
 
       /**
@@ -160,6 +160,7 @@ The mixins are actually applied to the container, not to the element (:host) its
        */
       iconSrcActive: {
         type: String,
+        value: ''
       },
 
       /**
@@ -191,8 +192,8 @@ The mixins are actually applied to the container, not to the element (:host) its
      * @param {String} The element's `icon` property.
      * @return {String} The element's `iconActive` property if present, else `null` if `iconSrcActive` is present (so there's no `icon` value needed) or else the element's `icon` property.
      */
-    _computeIconActive: function(iconActive) {
-      return iconActive ? iconActive : this.icon;
+    _computeIconActive: function(icon,iconActive) {
+      return iconActive ? iconActive : icon;
     },
 
     /**
@@ -201,8 +202,8 @@ The mixins are actually applied to the container, not to the element (:host) its
      * @param {String} The element's `iconSrc` property.
      * @return {String} The element's `iconSrcActive` property if present, else `null` if `iconActive` is present (so there's no `icon` value needed) or else the element's `iconSrc` property.
      */
-    _computeIconSrcActive: function(iconSrcActive) {
-      return (iconSrcActive) ? iconSrcActive : this.iconSrc;
+    _computeIconSrcActive: function(iconSrc,iconSrcActive) {
+      return (iconSrcActive) ? iconSrcActive : iconSrc;
     },
 
     /**
