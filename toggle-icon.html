@@ -67,27 +67,21 @@ The mixins are actually applied to the container, not to the element (:host) its
   <style>
     :host {
       display: inline-block;
-      padding: 8px;
-    }
-
-    :host #container {
-      @apply(--toggle-icon);
-
       position: relative;
-      display: inline-block;
+      padding: 8px;
       transition: all .3s;
+      @apply(--toggle-icon);
     }
 
-    :host[active] #container {
+    :host[active] {
       @apply(--toggle-icon-active);
     };
 
-    :host #inactive,
-    :host #active {
+    #inactive, #active {
       transition: opacity .3s;
     }
 
-    :host #active {
+    #active {
       position: absolute;
       left: 0;
       top: 0;
@@ -101,20 +95,18 @@ The mixins are actually applied to the container, not to the element (:host) its
   </style>
 
   <template>
-    <div id="container" data-rotation="red">
-      <paper-icon-button
-        id="inactive"
-        icon="{{icon}}"
-        src="{{iconSrc}}"
-        disabled$="{{disabled}}">
-      </paper-icon-button>
-      <paper-icon-button
-        id="active"
-        icon="{{_computeIconActive(icon)}}"
-        src="{{_computeIconSrcActive(iconSrc)}}"
-        disabled$="{{disabled}}">
-      </paper-icon-button>
-    </div>
+    <paper-icon-button
+      id="inactive"
+      icon="{{icon}}"
+      src="{{iconSrc}}"
+      disabled$="{{disabled}}">
+    </paper-icon-button>
+    <paper-icon-button
+      id="active"
+      icon="{{_computeIconActive(iconActive)}}"
+      src="{{_computeIconSrcActive(iconSrcActive)}}"
+      disabled$="{{disabled}}">
+    </paper-icon-button>
   </template>
 
 </dom-module>
@@ -199,14 +191,8 @@ The mixins are actually applied to the container, not to the element (:host) its
      * @param {String} The element's `icon` property.
      * @return {String} The element's `iconActive` property if present, else `null` if `iconSrcActive` is present (so there's no `icon` value needed) or else the element's `icon` property.
      */
-    _computeIconActive: function(icon) {
-      if (this.iconActive) {
-        return this.iconActive;
-      }
-      if (this.iconSrcActive) {
-        return null;
-      }
-      return this.icon;
+    _computeIconActive: function(iconActive) {
+      return iconActive ? iconActive : this.icon;
     },
 
     /**
@@ -215,14 +201,8 @@ The mixins are actually applied to the container, not to the element (:host) its
      * @param {String} The element's `iconSrc` property.
      * @return {String} The element's `iconSrcActive` property if present, else `null` if `iconActive` is present (so there's no `icon` value needed) or else the element's `iconSrc` property.
      */
-    _computeIconSrcActive: function(icon) {
-      if (this.iconSrcActive) {
-        return this.iconSrcActive;
-      }
-      if (this.iconActive) {
-        return null;
-      }
-      return this.iconSrc;
+    _computeIconSrcActive: function(iconSrcActive) {
+      return (iconSrcActive) ? iconSrcActive : this.iconSrc;
     },
 
     /**
@@ -251,12 +231,7 @@ The mixins are actually applied to the container, not to the element (:host) its
      * When changed to active, apply `_transform` as value to the transform property of the container. Else, clear the transform property. The CSS transition will animate the changes.
      */
     _activeChanged: function() {
-      if (this.active == true) {
-        this.$.container.style.transform = this._transform;
-      }
-      else {
-        this.$.container.style.transform = '';
-      }
+      this.style.transform = (this.active) ? this._transform : '';
     },
   });
 
