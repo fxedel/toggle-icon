@@ -1,0 +1,22 @@
+{
+  "name": "toggle-icon-gh-pages",
+  "homepage": "http://fxedel.github.io/toggle-icon/",
+  "authors": [
+    "Felix Edelmann"
+  ],
+  "description": "Demo for toggle-icon, used on GitHub pages",
+  "main": "index.html",
+  "license": "Creative Commons Share Alike 4.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page",
+    "toggle-icon": "fxedel/toggle-icon"
+  }
+}
