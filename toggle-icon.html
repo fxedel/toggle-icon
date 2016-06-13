@@ -219,7 +219,7 @@ Custom colors and backgrounds do animate if they change in checked state by usin
 
     listeners: {
       'click': 'toggleChecked',
-      'iron-change': '_updateTransform',
+      'iron-change': '_checkedChanged',
     },
 
 
@@ -268,10 +268,10 @@ Custom colors and backgrounds do animate if they change in checked state by usin
     },
 
     /**
-     * Apply CSS transforms (specified in the `animation` property) if element is checked
+     * If element is checked, apply CSS transforms (specified in `animation`).
      */
-    _updateTransform: function() {
-      this.style.transform = (this.checked) ? this._computeTransform() : '';
+    _checkedChanged: function() {
+      this.transform(this.checked ? this._computeTransform() : '');
     },
 
     /**
