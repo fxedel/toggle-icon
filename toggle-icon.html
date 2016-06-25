@@ -252,6 +252,10 @@ Custom colors and backgrounds do animate if they change in checked state by usin
      * Compute the transform property depending on the specified animations in `animation`.
      */
     _computeTransform: function() {
+      if (this.animation === undefined || this.animation == null) {
+        return '';
+      }
+
       var transform = '';
 
       if (this.animation.indexOf('flip-vertical') > -1) {
@@ -272,6 +276,7 @@ Custom colors and backgrounds do animate if they change in checked state by usin
      */
     _checkedChanged: function() {
       this.transform(this.checked ? this._computeTransform() : '');
+      this.active = this.checked;
     },
 
     /**
