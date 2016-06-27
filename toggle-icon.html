@@ -64,37 +64,37 @@ Custom colors and backgrounds do animate if they change in checked state by usin
 
 <dom-module id="toggle-icon">
 
-  <style>
-    :host {
-      display: inline-block;
-      position: relative;
-      transition: all .3s;
-      @apply(--toggle-icon);
-    }
-
-    :host[checked] {
-      @apply(--toggle-icon-checked);
-      @apply(--toggle-icon-active);
-    };
-
-    #unchecked, #checked {
-      transition: opacity .3s;
-    }
-
-    #checked {
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
-    :host:not([checked]) #checked,
-    :host[checked] #unchecked {
-      opacity: 0;
-      pointer-events: none;
-    }
-  </style>
-
   <template>
+
+    <style>
+      :host {
+        display: inline-block;
+        position: relative;
+        transition: all .3s;
+        @apply(--toggle-icon);
+      }
+
+      :host([checked]) {
+        @apply(--toggle-icon-checked);
+        @apply(--toggle-icon-active);
+      };
+
+      #unchecked, #checked {
+        transition: opacity .3s;
+      }
+
+      #checked {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      :host(:not([checked])) #checked,
+      :host([checked]) #unchecked {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
 
     <paper-icon-button
       id="unchecked"
