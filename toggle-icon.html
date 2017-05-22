@@ -245,7 +245,7 @@ Custom colors and backgrounds do animate if they change in checked state by usin
      * Use `iconSrcChecked` if present, else `iconSrcActive` if present (_used for backwards compatibility_), else `iconSrc`.
      */
     _computeIconSrcChecked: function(iconSrc, iconSrcChecked, iconSrcActive) {
-      return iconSrcChecked ? iconSrcChecked : (iconSrcActive ? iconSrcActive : icon);
+      return iconSrcChecked ? iconSrcChecked : (iconSrcActive ? iconSrcActive : iconSrc);
     },
 
     /**
