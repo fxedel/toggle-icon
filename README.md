@@ -29,5 +29,4 @@ Feel free to open an issue if you notice something that can be improved.
 I really appreciate any contribution :)
 
 ## License
-The license is Creative Commons Share Alike 4.0, so you can use or modify the code as you like, you only need to distribute your contributions under the same license and name the author (e. g. by adding a link to the GitHub repository).
-
+The project is distributed under the MIT License, so you can use or modify the code as you like, you only need to name the author (e. g. by adding a link to the GitHub repository).

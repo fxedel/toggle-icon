@@ -12,91 +12,93 @@
     <link rel="import" href="../../paper-styles/demo-pages.html">
     <link rel="import" href="../toggle-icon.html">
 
-    <style is="custom-style">
-      .vertical-section-container {
-        max-width: 800px;
-        margin: 0 auto;
-      }
+    <custom-style>
+      <style is="custom-style">
+        html {
+          --toggle-icon-buttons: {
+            padding: 16px;
+            width: 80px;
+            height: 80px;
+          };
+        }
 
-      .horizontal-section {
-        text-align: center;
-        width: calc(100% - 48px);
-        margin: 0;
-      }
+        .vertical-section-container {
+          max-width: 800px;
+          margin: 0 auto;
+        }
 
-      .horizontal-section div {
-        margin: 0 1em;
-        width: 100px;
-        min-width: 100px;
-      }
+        .horizontal-section {
+          text-align: center;
+          width: calc(100% - 48px);
+          margin: 0;
+        }
 
-      toggle-icon /deep/ paper-icon-button {
-        padding: 16px;
-        width: 80px;
-        height: 80px;
-      }
+        .horizontal-section div {
+          margin: 0 1em;
+          width: 100px;
+          min-width: 100px;
+        }
 
-      .checked-red {
-        --toggle-icon-checked: {
-          color: var(--paper-red-500);
-        };
-      }
-      .checked-indigo {
-        --toggle-icon-checked: {
-          color: var(--paper-indigo-500);
-        };
-      }
-      .checked-green {
-        --toggle-icon-checked: {
-          color: var(--paper-green-500);
-        };
-      }
-      .checked-orange {
-        --toggle-icon-checked: {
-          color: var(--paper-orange-500);
-        };
-      }
-      .checked-cyan {
-        --toggle-icon-checked: {
-          color: var(--paper-cyan-500);
-        };
-      }
+        .checked-red {
+          --toggle-icon-checked: {
+            color: var(--paper-red-500);
+          };
+        }
+        .checked-indigo {
+          --toggle-icon-checked: {
+            color: var(--paper-indigo-500);
+          };
+        }
+        .checked-green {
+          --toggle-icon-checked: {
+            color: var(--paper-green-500);
+          };
+        }
+        .checked-orange {
+          --toggle-icon-checked: {
+            color: var(--paper-orange-500);
+          };
+        }
+        .checked-cyan {
+          --toggle-icon-checked: {
+            color: var(--paper-cyan-500);
+          };
+        }
 
-      .all1,
-      .all4 {
-        --toggle-icon: {
-          color: var(--paper-green-500);
-        };
-        --toggle-icon-checked: {
-          color: var(--paper-red-500);
-        };
-      }
-      .all2 {
-        --toggle-icon: {
-          color: var(--paper-indigo-500);
-        };
-      }
-      .all3 {
-        --toggle-icon-checked: {
-          color: var(--paper-orange-500);
-        };
-      }
-      .all5 {
-        --iron-icon-width: 36px;
-        --iron-icon-height: 36px;
-        --toggle-icon: {
-          background: var(--paper-green-500);
-          border-radius: 50%;
-          color: #fff;
-        };
-        --toggle-icon-checked: {
-          background: var(--paper-red-500);
-        };
-      }
-    </style>
-
+        .all1,
+        .all4 {
+          --toggle-icon: {
+            color: var(--paper-green-500);
+          };
+          --toggle-icon-checked: {
+            color: var(--paper-red-500);
+          };
+        }
+        .all2 {
+          --toggle-icon: {
+            color: var(--paper-indigo-500);
+          };
+        }
+        .all3 {
+          --toggle-icon-checked: {
+            color: var(--paper-orange-500);
+          };
+        }
+        .all5 {
+          --toggle-icon: {
+            background: var(--paper-green-500);
+            border-radius: 50%;
+            color: #fff;
+          };
+          --toggle-icon-checked: {
+            background: var(--paper-red-500);
+            color: #fff;
+          };
+        }
+      </style>
+    </custom-style>
   </head>
-
+  
   <body unresolved>
 
     <div class="vertical-section-container">

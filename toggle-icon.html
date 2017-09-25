@@ -1,12 +1,16 @@
 <!--
-@license
-Copyright (c) 2015 Felix Edelmann
-Creative Commons Share Alike 4.0
+Copyright (c) 2016-17 Felix Edelmann. 
+The project is distributed under the MIT License, so you can use or modify the code as you like, you only need to name the author (e. g. by adding a link to the GitHub repository).
+
+Source code: https://github.com/fxedel/toggle-icon
+Component page / demo: http://fxedel.github.io/toggle-icon/
 -->
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-checked-element-behavior/iron-checked-element-behavior.html">
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
+
+<link rel="import" href="../shadycss/apply-shim.html">
 
 
 <!--
@@ -34,7 +38,8 @@ Custom property | Description | Default
 ----------------|-------------|----------
 `--toggle-icon` | Mixin for the toggle | `{}`
 `--toggle-icon-checked` | Mixin for the toggle when checked | `{}`
-`--toggle-icon-active` | _Used for backwards compatibility._ Mixin for the toggle when checked | `{}`
+`--toggle-icon-active` | _Used for backwards compatibility._ Same as --toggle-icon-checked | `{}`
+`--toggle-icon-buttons` | Mixin for the used paper-icon-buttons | `{}`
 
 Custom colors and backgrounds do animate if they change in checked state by using the CSS transition attribute.
 
@@ -63,24 +68,23 @@ Custom colors and backgrounds do animate if they change in checked state by usin
 -->
 
 <dom-module id="toggle-icon">
-
   <template>
-
     <style>
       :host {
         display: inline-block;
         position: relative;
         transition: all .3s;
-        @apply(--toggle-icon);
+        @apply --toggle-icon;
       }
 
-      :host([checked]) {
-        @apply(--toggle-icon-checked);
-        @apply(--toggle-icon-active);
-      };
+      :host[checked] {
+        @apply --toggle-icon-checked;
+        @apply --toggle-icon-active;
+      }
 
       #unchecked, #checked {
         transition: opacity .3s;
+        @apply --toggle-icon-buttons;
       }
 
       #checked {
@@ -89,8 +93,8 @@ Custom colors and backgrounds do animate if they change in checked state by usin
         top: 0;
       }
 
-      :host(:not([checked])) #checked,
-      :host([checked]) #unchecked {
+      :host:not([checked]) #checked,
+      :host[checked] #unchecked {
         opacity: 0;
         pointer-events: none;
       }

@@ -1,10 +1,10 @@
 {
   "name": "toggle-icon",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "authors": [
     "Felix Edelmann"
   ],
-  "description": "An extremly powerful and customizable switch that looks like a paper-icon-button build for the Polymer framework",
+  "description": "An extremly powerful and customizable switch that looks like a paper-icon-button built for the Polymer framework",
   "keywords": [
     "web-components",
     "polymer",
@@ -13,7 +13,7 @@
     "CSS animation"
   ],
   "main": "toggle-icon.html",
-  "license": "Creative Commons Share Alike 4.0",
+  "license": "MIT License",
   "homepage": "http://fxedel.github.io/toggle-icon/toggle-icon/",
   "repository": {
     "type": "git",
@@ -24,12 +24,12 @@
     "paper-behaviors": "PolymerElements/paper-behaviors#^2.0.0",
     "paper-icon-button": "PolymerElements/paper-icon-button#^2.0.0",
     "paper-styles": "PolymerElements/paper-styles#^2.0.0",
-    "polymer": "Polymer/polymer#^2.0.0"
+    "polymer": "Polymer/polymer#^2.1.0"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "test-fixture": "PolymerElements/test-fixture#^1.0.0",
+    "iron-component-page": "PolymerElements/iron-component-page#^3.0.1",
+    "test-fixture": "PolymerElements/test-fixture#^3.0.0",
     "web-component-tester": "*",
-    "webcomponentsjs": "WebComponents/webcomponentsjs#^0.7.0"
+    "webcomponentsjs": "WebComponents/webcomponentsjs#^1.0.5"
   }
 }
