@@ -10,11 +10,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../paper-styles/default-theme.html">
-<link rel="import" href="../paper-behaviors/paper-button-behavior.html">
 <link rel="import" href="../paper-behaviors/paper-inky-focus-behavior.html">
-<link rel="import" href="../paper-ripple/paper-ripple.html">
+<link rel="import" href="../paper-styles/default-theme.html">
 
 <!--
 Material design: [Icon toggles](https://www.google.com/design/spec/components/buttons.html#buttons-toggle-buttons)
@@ -22,12 +19,13 @@ Material design: [Icon toggles](https://www.google.com/design/spec/components/bu
 `paper-icon-button` is a button with an image placed at the center. When the user touches
 the button, a ripple effect emanates from the center of the button.
 
-`paper-icon-button` includes a default icon set.  Use `icon` to specify which icon
+`paper-icon-button` does not include a default icon set. To use icons from the default
+set, include `PolymerElements/iron-icons/iron-icons.html`, and use the `icon` attribute to specify which icon
 from the icon set to use.
 
     <paper-icon-button icon="menu"></paper-icon-button>
 
-See [`iron-iconset`](#iron-iconset) for more information about
+See [`iron-iconset`](iron-iconset) for more information about
 how to use a custom icon set.
 
 Example:
@@ -36,6 +34,14 @@ Example:
 
     <paper-icon-button icon="favorite"></paper-icon-button>
     <paper-icon-button src="star.png"></paper-icon-button>
+
+To use `paper-icon-button` as a link, wrap it in an anchor tag. Since `paper-icon-button`
+will already receive focus, you may want to prevent the anchor tag from receiving focus
+as well by setting its tabindex to -1.
+
+    <a href="https://www.polymer-project.org" tabindex="-1">
+      <paper-icon-button icon="polymer"></paper-icon-button>
+    </a>
 
 ### Styling
 
@@ -71,7 +77,6 @@ Custom property | Description | Default
         position: relative;
         padding: 8px;
         outline: none;
-        -webkit-tap-highlight-color: rgba(0,0,0,0);
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
@@ -79,29 +84,39 @@ Custom property | Description | Default
         cursor: pointer;
         z-index: 0;
         line-height: 1;
-        
+
         width: 40px;
         height: 40px;
 
+        /* NOTE: Both values are needed, since some phones require the value to be `transparent`. */
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: transparent;
+
         /* Because of polymer/2558, this style has lower specificity than * */
         box-sizing: border-box !important;
-        @apply(--paper-icon-button);
+
+        @apply --paper-icon-button;
       }
 
       :host #ink {
-        color: var(--paper-icon-button-ink-color, --primary-text-color);
+        color: var(--paper-icon-button-ink-color, var(--primary-text-color));
         opacity: 0.6;
       }
 
       :host([disabled]) {
-        color: var(--paper-icon-button-disabled-text, --disabled-text-color);
+        color: var(--paper-icon-button-disabled-text, var(--disabled-text-color));
         pointer-events: none;
         cursor: auto;
-        @apply(--paper-icon-button-disabled);
+
+        @apply --paper-icon-button-disabled;
       }
-      
-      :host(:hover) { 
-        @apply(--paper-icon-button-hover);
+
+      :host([hidden]) {
+        display: none !important;
+      }
+
+      :host(:hover) {
+        @apply --paper-icon-button-hover;
       }
 
       iron-icon {
@@ -109,6 +124,7 @@ Custom property | Description | Default
         --iron-icon-height: 100%;
       }
     </style>
+
     <iron-icon id="icon" src="[[src]]" icon="[[icon]]" alt$="[[alt]]"></iron-icon>
   </template>
 

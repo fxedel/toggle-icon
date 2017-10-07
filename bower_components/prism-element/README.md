@@ -1,4 +1,3 @@
-
 <!---
 
 This README is automatically generated from the comments in these files:
@@ -7,11 +6,11 @@ prism-highlighter.html
 Edit those files, and our readme bot will duplicate them over here!
 Edit this file, and the bot will squash your changes :)
 
+The bot does some handling of markdown. Please file a bug if it does the wrong
+thing! https://github.com/PolymerLabs/tedium/issues
+
 -->
-
-
-##&lt;prism-highlighter&gt;
-
+## &lt;prism-highlighter&gt;
 
 Syntax highlighting via [Prism](http://prismjs.com/).
 
@@ -24,4 +23,5 @@ containing the source to highlight. The event detail can optionally contain a
 `lang` property, containing a string like `"html"`, `"js"`, etc.
 
 This flow is supported by [`<marked-element>`](https://github.com/PolymerElements/marked-element).
+
 

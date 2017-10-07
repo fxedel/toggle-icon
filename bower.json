@@ -17,6 +17,6 @@
   ],
   "dependencies": {
     "iron-component-page": "PolymerElements/iron-component-page",
-    "toggle-icon": "fxedel/toggle-icon"
+    "toggle-icon": "fxedel/toggle-icon#master"
   }
 }
