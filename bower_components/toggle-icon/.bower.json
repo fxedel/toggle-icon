@@ -31,11 +31,11 @@
     "web-component-tester": "*",
     "webcomponentsjs": "WebComponents/webcomponentsjs#^1.0.5"
   },
-  "_release": "a74f27c3f4",
+  "_release": "c0c239979c",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "a74f27c3f4715cbe42f7290da8f2bdad172c95a6"
+    "commit": "c0c239979c7bf70c38a8486f3630762d0123c7a6"
   },
   "_source": "https://github.com/fxedel/toggle-icon.git",
   "_target": "master",
