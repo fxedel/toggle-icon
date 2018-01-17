@@ -115,20 +115,14 @@ Custom colors and backgrounds do animate if they change in checked state by usin
 
   </template>
 
-<script>
-   class ToggleIcon extends Polymer.mixinBehaviors([Polymer.IronCheckedElementBehavior],
-   Polymer.Element) {
-      static get is() { return 'toggle-icon'; }
+  <script>
+    class ToggleIcon extends Polymer.mixinBehaviors([Polymer.IronCheckedElementBehavior], Polymer.Element) {
+      static get is() {
+        return 'toggle-icon';
+      }
+
       static get properties() {
         return {
-          /**
-           * Changes on click, like a checkbox. Doesn't change when disabled.
-           */
-          checked: {
-            type: Boolean,
-            value: false,
-          },
-
           /**
            * _Used for backwards compatibility._
            * Alias for `checked`
@@ -211,21 +205,21 @@ Custom colors and backgrounds do animate if they change in checked state by usin
           }
         }
       }
+
       ready() {
         super.ready();
         this._addListeners()
       }
+
       _addListeners() {
-        //Polymer.Gestures.addListener(this,'tap', e => this.toggleChecked(e));
-        this.addEventListener('tap', e => this.toggleChecked(e))
-        this.addEventListener('iron-change', e => this._checkedChanged(e));
+        this.addEventListener('click', this.toggleChecked)
+        this.addEventListener('iron-change', this._updateTransform);
       }
 
-        /**
-       * Toggle `checked`
+      /**
+       * Toggles `checked` if the element is not disabled. Usually called when clicked.
        */
       toggleChecked() {
-        console.log('toggleChecked')
         if (!this.disabled) {
           this.checked = !this.checked;
         }
@@ -273,9 +267,8 @@ Custom colors and backgrounds do animate if they change in checked state by usin
       /**
        * If element is checked, apply CSS transforms (specified in `animation`).
        */
-      _checkedChanged() {
+      _updateTransform() {
         this.transform(this.checked ? this._computeTransform() : '');
-        this.active = this.checked;
       }
 
       /**
@@ -285,10 +278,8 @@ Custom colors and backgrounds do animate if they change in checked state by usin
       _activeChanged() {
         this.checked = this.active;
       }
-
-
     }
 
     window.customElements.define(ToggleIcon.is, ToggleIcon);
-</script>
+  </script>
 </dom-module>
