@@ -7,18 +7,236 @@
       "path": "toggle-icon.html",
       "properties": [
         {
+          "name": "name",
+          "type": "string",
+          "description": "The name of this element.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/iron-form-element-behavior/iron-form-element-behavior.html",
+            "start": {
+              "line": 40,
+              "column": 6
+            },
+            "end": {
+              "line": 42,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.IronFormElementBehavior"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Overriden from Polymer.IronFormElementBehavior",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/iron-checked-element-behavior/iron-checked-element-behavior.html",
+            "start": {
+              "line": 56,
+              "column": 6
+            },
+            "end": {
+              "line": 60,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "\"_valueChanged\""
+            }
+          },
+          "defaultValue": "\"on\"",
+          "inheritedFrom": "Polymer.IronCheckedElementBehavior"
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "Set to true to mark the input as required. If used in a form, a\ncustom element that uses this behavior should also use\nPolymer.IronValidatableBehavior and define a custom validation method.\nOtherwise, a `required` element will always be considered valid.\nIt's also strongly recommended to provide a visual style for the element\nwhen its value is invalid.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/iron-form-element-behavior/iron-form-element-behavior.html",
+            "start": {
+              "line": 60,
+              "column": 6
+            },
+            "end": {
+              "line": 63,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false",
+          "inheritedFrom": "Polymer.IronFormElementBehavior"
+        },
+        {
+          "name": "_parentForm",
+          "type": "Object",
+          "description": "The form that the element is registered to.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-form-element-behavior/iron-form-element-behavior.html",
+            "start": {
+              "line": 68,
+              "column": 6
+            },
+            "end": {
+              "line": 70,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.IronFormElementBehavior"
+        },
+        {
+          "name": "attached",
+          "type": "Conditional",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-form-element-behavior/iron-form-element-behavior.html",
+            "start": {
+              "line": 73,
+              "column": 4
+            },
+            "end": {
+              "line": 77,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.IronFormElementBehavior"
+        },
+        {
+          "name": "detached",
+          "type": "Conditional",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-form-element-behavior/iron-form-element-behavior.html",
+            "start": {
+              "line": 79,
+              "column": 4
+            },
+            "end": {
+              "line": 83,
+              "column": 5
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.IronFormElementBehavior"
+        },
+        {
+          "name": "validator",
+          "type": "string",
+          "description": "Name of the validator to use.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/iron-validatable-behavior/iron-validatable-behavior.html",
+            "start": {
+              "line": 49,
+              "column": 6
+            },
+            "end": {
+              "line": 51,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "inheritedFrom": "Polymer.IronValidatableBehavior"
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "True if the last call to `validate` is invalid.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/iron-validatable-behavior/iron-validatable-behavior.html",
+            "start": {
+              "line": 56,
+              "column": 6
+            },
+            "end": {
+              "line": 62,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true,
+              "observer": "\"_invalidChanged\""
+            }
+          },
+          "defaultValue": "false",
+          "inheritedFrom": "Polymer.IronValidatableBehavior"
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "description": "Changes on click, like a checkbox. Doesn't change when disabled.",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 127,
+              "column": 6
+            },
+            "end": {
+              "line": 130,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "toggles",
+          "type": "boolean",
+          "description": "If true, the button toggles the active state with each tap or press\nof the spacebar.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/iron-checked-element-behavior/iron-checked-element-behavior.html",
+            "start": {
+              "line": 49,
+              "column": 6
+            },
+            "end": {
+              "line": 53,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "true",
+          "inheritedFrom": "Polymer.IronCheckedElementBehavior"
+        },
+        {
           "name": "active",
           "type": "boolean",
           "description": "_Used for backwards compatibility._\nAlias for `checked`",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 129,
-              "column": 10
+              "line": 136,
+              "column": 6
             },
             "end": {
-              "line": 132,
-              "column": 11
+              "line": 139,
+              "column": 7
             }
           },
           "metadata": {
@@ -34,12 +252,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 138,
-              "column": 10
+              "line": 145,
+              "column": 6
             },
             "end": {
-              "line": 140,
-              "column": 11
+              "line": 147,
+              "column": 7
             }
           },
           "metadata": {
@@ -53,12 +271,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 145,
-              "column": 10
+              "line": 152,
+              "column": 6
             },
             "end": {
-              "line": 148,
-              "column": 11
+              "line": 155,
+              "column": 7
             }
           },
           "metadata": {
@@ -73,12 +291,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 153,
-              "column": 10
+              "line": 160,
+              "column": 6
             },
             "end": {
-              "line": 155,
-              "column": 11
+              "line": 162,
+              "column": 7
             }
           },
           "metadata": {
@@ -92,12 +310,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 160,
-              "column": 10
+              "line": 167,
+              "column": 6
             },
             "end": {
-              "line": 163,
-              "column": 11
+              "line": 170,
+              "column": 7
             }
           },
           "metadata": {
@@ -112,12 +330,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 169,
-              "column": 10
+              "line": 176,
+              "column": 6
             },
             "end": {
-              "line": 172,
-              "column": 11
+              "line": 179,
+              "column": 7
             }
           },
           "metadata": {
@@ -132,12 +350,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 177,
-              "column": 10
+              "line": 184,
+              "column": 6
             },
             "end": {
-              "line": 179,
-              "column": 11
+              "line": 186,
+              "column": 7
             }
           },
           "metadata": {
@@ -151,12 +369,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 184,
-              "column": 10
+              "line": 191,
+              "column": 6
             },
             "end": {
-              "line": 187,
-              "column": 11
+              "line": 194,
+              "column": 7
             }
           },
           "metadata": {
@@ -171,12 +389,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 193,
-              "column": 10
+              "line": 200,
+              "column": 6
             },
             "end": {
-              "line": 196,
-              "column": 11
+              "line": 203,
+              "column": 7
             }
           },
           "metadata": {
@@ -191,12 +409,12 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 201,
-              "column": 10
+              "line": 208,
+              "column": 6
             },
             "end": {
-              "line": 204,
-              "column": 11
+              "line": 211,
+              "column": 7
             }
           },
           "metadata": {
@@ -207,51 +425,229 @@
       ],
       "methods": [
         {
-          "name": "ready",
+          "name": "registered",
           "description": "",
           "privacy": "protected",
           "sourceRange": {
+            "file": "bower_components/iron-validatable-behavior/iron-validatable-behavior.html",
             "start": {
-              "line": 208,
-              "column": 6
+              "line": 65,
+              "column": 4
             },
             "end": {
-              "line": 211,
-              "column": 7
+              "line": 67,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.IronValidatableBehavior"
+        },
+        {
+          "name": "_invalidChanged",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-validatable-behavior/iron-validatable-behavior.html",
+            "start": {
+              "line": 69,
+              "column": 4
+            },
+            "end": {
+              "line": 75,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.IronValidatableBehavior"
+        },
+        {
+          "name": "_validator",
+          "description": "Recompute this every time it's needed, because we don't know if the\nunderlying IronValidatableBehaviorMeta has changed.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-validatable-behavior/iron-validatable-behavior.html",
+            "start": {
+              "line": 79,
+              "column": 4
+            },
+            "end": {
+              "line": 82,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.IronValidatableBehavior"
+        },
+        {
+          "name": "hasValidator",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/iron-validatable-behavior/iron-validatable-behavior.html",
+            "start": {
+              "line": 87,
+              "column": 4
+            },
+            "end": {
+              "line": 89,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "return": {
+            "type": "boolean",
+            "desc": "True if the validator `validator` exists."
+          },
+          "inheritedFrom": "Polymer.IronValidatableBehavior"
+        },
+        {
+          "name": "validate",
+          "description": "Returns true if the `value` is valid, and updates `invalid`. If you want\nyour element to have custom validation logic, do not override this method;\noverride `_getValidity(value)` instead.",
+          "privacy": "public",
+          "sourceRange": {
+            "file": "bower_components/iron-validatable-behavior/iron-validatable-behavior.html",
+            "start": {
+              "line": 102,
+              "column": 4
+            },
+            "end": {
+              "line": 110,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "value",
+              "type": "Object",
+              "description": "Deprecated: The value to be validated. By default,\nit is passed to the validator's `validate()` function, if a validator is set.\nIf this argument is not specified, then the element's `value` property\nis used, if it exists."
+            }
+          ],
+          "return": {
+            "type": "boolean",
+            "desc": "True if `value` is valid."
+          },
+          "inheritedFrom": "Polymer.IronValidatableBehavior"
+        },
+        {
+          "name": "_getValidity",
+          "description": "Returns false if the element is required and not checked, and true otherwise.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-checked-element-behavior/iron-checked-element-behavior.html",
+            "start": {
+              "line": 79,
+              "column": 4
+            },
+            "end": {
+              "line": 81,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "_value",
+              "type": "*=",
+              "description": "Ignored."
+            }
+          ],
+          "return": {
+            "type": "boolean",
+            "desc": "true if `required` is false or if `checked` is true."
+          },
+          "inheritedFrom": "Polymer.IronCheckedElementBehavior"
+        },
+        {
+          "name": "created",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-checked-element-behavior/iron-checked-element-behavior.html",
+            "start": {
+              "line": 67,
+              "column": 4
+            },
+            "end": {
+              "line": 72,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.IronCheckedElementBehavior"
+        },
+        {
+          "name": "_requiredChanged",
+          "description": "Update the aria-required label when `required` is changed.",
+          "privacy": "protected",
+          "sourceRange": {
+            "file": "bower_components/iron-checked-element-behavior/iron-checked-element-behavior.html",
+            "start": {
+              "line": 86,
+              "column": 4
+            },
+            "end": {
+              "line": 92,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [],
+          "inheritedFrom": "Polymer.IronCheckedElementBehavior"
+        },
+        {
+          "name": "_checkedChanged",
+          "description": "If element is checked, apply CSS transforms (specified in `animation`).",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 277,
+              "column": 4
+            },
+            "end": {
+              "line": 280,
+              "column": 5
             }
           },
           "metadata": {},
           "params": []
         },
         {
-          "name": "_addListeners",
-          "description": "",
+          "name": "_valueChanged",
+          "description": "Reset value to 'on' if it is set to `undefined`.",
           "privacy": "protected",
           "sourceRange": {
+            "file": "bower_components/iron-checked-element-behavior/iron-checked-element-behavior.html",
             "start": {
-              "line": 213,
-              "column": 6
+              "line": 105,
+              "column": 4
             },
             "end": {
-              "line": 216,
-              "column": 7
+              "line": 109,
+              "column": 5
             }
           },
           "metadata": {},
-          "params": []
+          "params": [],
+          "inheritedFrom": "Polymer.IronCheckedElementBehavior"
         },
         {
           "name": "toggleChecked",
-          "description": "Toggles `checked` if the element is not disabled. Usually called when clicked.",
+          "description": "Toggle `checked`",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 221,
-              "column": 6
+              "line": 229,
+              "column": 4
             },
             "end": {
-              "line": 225,
-              "column": 7
+              "line": 233,
+              "column": 5
             }
           },
           "metadata": {},
@@ -263,12 +659,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 231,
-              "column": 6
+              "line": 239,
+              "column": 4
             },
             "end": {
-              "line": 233,
-              "column": 7
+              "line": 241,
+              "column": 5
             }
           },
           "metadata": {},
@@ -290,12 +686,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 239,
-              "column": 6
+              "line": 247,
+              "column": 4
             },
             "end": {
-              "line": 241,
-              "column": 7
+              "line": 249,
+              "column": 5
             }
           },
           "metadata": {},
@@ -317,29 +713,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 246,
-              "column": 6
+              "line": 254,
+              "column": 4
             },
             "end": {
-              "line": 264,
-              "column": 7
-            }
-          },
-          "metadata": {},
-          "params": []
-        },
-        {
-          "name": "_updateTransform",
-          "description": "If element is checked, apply CSS transforms (specified in `animation`).",
-          "privacy": "protected",
-          "sourceRange": {
-            "start": {
-              "line": 269,
-              "column": 6
-            },
-            "end": {
-              "line": 271,
-              "column": 7
+              "line": 272,
+              "column": 5
             }
           },
           "metadata": {},
@@ -351,12 +730,12 @@
           "privacy": "protected",
           "sourceRange": {
             "start": {
-              "line": 277,
-              "column": 6
+              "line": 286,
+              "column": 4
             },
             "end": {
-              "line": 279,
-              "column": 7
+              "line": 288,
+              "column": 5
             }
           },
           "metadata": {},
@@ -373,29 +752,152 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 118,
-          "column": 4
+          "line": 119,
+          "column": 10
         },
         "end": {
-          "line": 280,
-          "column": 5
+          "line": 289,
+          "column": 3
         }
       },
       "privacy": "public",
       "superclass": "HTMLElement",
-      "name": "ToggleIcon",
       "attributes": [
+        {
+          "name": "name",
+          "description": "The name of this element.",
+          "sourceRange": {
+            "file": "bower_components/iron-form-element-behavior/iron-form-element-behavior.html",
+            "start": {
+              "line": 40,
+              "column": 6
+            },
+            "end": {
+              "line": 42,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.IronFormElementBehavior"
+        },
+        {
+          "name": "value",
+          "description": "Overriden from Polymer.IronFormElementBehavior",
+          "sourceRange": {
+            "file": "bower_components/iron-checked-element-behavior/iron-checked-element-behavior.html",
+            "start": {
+              "line": 56,
+              "column": 6
+            },
+            "end": {
+              "line": 60,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.IronCheckedElementBehavior"
+        },
+        {
+          "name": "required",
+          "description": "Set to true to mark the input as required. If used in a form, a\ncustom element that uses this behavior should also use\nPolymer.IronValidatableBehavior and define a custom validation method.\nOtherwise, a `required` element will always be considered valid.\nIt's also strongly recommended to provide a visual style for the element\nwhen its value is invalid.",
+          "sourceRange": {
+            "file": "bower_components/iron-form-element-behavior/iron-form-element-behavior.html",
+            "start": {
+              "line": 60,
+              "column": 6
+            },
+            "end": {
+              "line": 63,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "Polymer.IronFormElementBehavior"
+        },
+        {
+          "name": "validator",
+          "description": "Name of the validator to use.",
+          "sourceRange": {
+            "file": "bower_components/iron-validatable-behavior/iron-validatable-behavior.html",
+            "start": {
+              "line": 49,
+              "column": 6
+            },
+            "end": {
+              "line": 51,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string",
+          "inheritedFrom": "Polymer.IronValidatableBehavior"
+        },
+        {
+          "name": "invalid",
+          "description": "True if the last call to `validate` is invalid.",
+          "sourceRange": {
+            "file": "bower_components/iron-validatable-behavior/iron-validatable-behavior.html",
+            "start": {
+              "line": 56,
+              "column": 6
+            },
+            "end": {
+              "line": 62,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "Polymer.IronValidatableBehavior"
+        },
+        {
+          "name": "checked",
+          "description": "Changes on click, like a checkbox. Doesn't change when disabled.",
+          "sourceRange": {
+            "start": {
+              "line": 127,
+              "column": 6
+            },
+            "end": {
+              "line": 130,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "toggles",
+          "description": "If true, the button toggles the active state with each tap or press\nof the spacebar.",
+          "sourceRange": {
+            "file": "bower_components/iron-checked-element-behavior/iron-checked-element-behavior.html",
+            "start": {
+              "line": 49,
+              "column": 6
+            },
+            "end": {
+              "line": 53,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean",
+          "inheritedFrom": "Polymer.IronCheckedElementBehavior"
+        },
         {
           "name": "active",
           "description": "_Used for backwards compatibility._\nAlias for `checked`",
           "sourceRange": {
             "start": {
-              "line": 129,
-              "column": 10
+              "line": 136,
+              "column": 6
             },
             "end": {
-              "line": 132,
-              "column": 11
+              "line": 139,
+              "column": 7
             }
           },
           "metadata": {},
@@ -406,12 +908,12 @@
           "description": "Specifies how to transform the content.\nAllowed modes: `flip-vertical`, `flip-horizontal`, `rotate`",
           "sourceRange": {
             "start": {
-              "line": 138,
-              "column": 10
+              "line": 145,
+              "column": 6
             },
             "end": {
-              "line": 140,
-              "column": 11
+              "line": 147,
+              "column": 7
             }
           },
           "metadata": {},
@@ -422,12 +924,12 @@
           "description": "Specifies the degrees when `animation` contains `rotate`.",
           "sourceRange": {
             "start": {
-              "line": 145,
-              "column": 10
+              "line": 152,
+              "column": 6
             },
             "end": {
-              "line": 148,
-              "column": 11
+              "line": 155,
+              "column": 7
             }
           },
           "metadata": {},
@@ -438,12 +940,12 @@
           "description": "The name of the icon to use. The name should be of the form: `iconset_name:icon_name` (omit the iconset name when using the default set). See [iron-icon](https://elements.polymer-project.org/elements/iron-icon).",
           "sourceRange": {
             "start": {
-              "line": 153,
-              "column": 10
+              "line": 160,
+              "column": 6
             },
             "end": {
-              "line": 155,
-              "column": 11
+              "line": 162,
+              "column": 7
             }
           },
           "metadata": {},
@@ -454,12 +956,12 @@
           "description": "Like `icon`, but only used when checked.",
           "sourceRange": {
             "start": {
-              "line": 160,
-              "column": 10
+              "line": 167,
+              "column": 6
             },
             "end": {
-              "line": 163,
-              "column": 11
+              "line": 170,
+              "column": 7
             }
           },
           "metadata": {},
@@ -470,12 +972,12 @@
           "description": "_Used for backwards compatibility._\nAlias for `iconChecked`",
           "sourceRange": {
             "start": {
-              "line": 169,
-              "column": 10
+              "line": 176,
+              "column": 6
             },
             "end": {
-              "line": 172,
-              "column": 11
+              "line": 179,
+              "column": 7
             }
           },
           "metadata": {},
@@ -486,12 +988,12 @@
           "description": "If using iron-icon without an iconset, you can set the src to be the URL of an individual icon image file. Note that this will take precedence over a given icon attribute. See [iron-icon](https://elements.polymer-project.org/elements/iron-icon).",
           "sourceRange": {
             "start": {
-              "line": 177,
-              "column": 10
+              "line": 184,
+              "column": 6
             },
             "end": {
-              "line": 179,
-              "column": 11
+              "line": 186,
+              "column": 7
             }
           },
           "metadata": {},
@@ -502,12 +1004,12 @@
           "description": "Like `iconSrc`, but only used when checked.",
           "sourceRange": {
             "start": {
-              "line": 184,
-              "column": 10
+              "line": 191,
+              "column": 6
             },
             "end": {
-              "line": 187,
-              "column": 11
+              "line": 194,
+              "column": 7
             }
           },
           "metadata": {},
@@ -518,12 +1020,12 @@
           "description": "_Used for backwards compatibility._\nAlias for `iconSrcChecked`",
           "sourceRange": {
             "start": {
-              "line": 193,
-              "column": 10
+              "line": 200,
+              "column": 6
             },
             "end": {
-              "line": 196,
-              "column": 11
+              "line": 203,
+              "column": 7
             }
           },
           "metadata": {},
@@ -534,19 +1036,62 @@
           "description": "Set to `true` to disable the toggle.",
           "sourceRange": {
             "start": {
-              "line": 201,
-              "column": 10
+              "line": 208,
+              "column": 6
             },
             "end": {
-              "line": 204,
-              "column": 11
+              "line": 211,
+              "column": 7
             }
           },
           "metadata": {},
           "type": "boolean"
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "iron-form-element-register",
+          "description": "iron-form-element-register",
+          "metadata": {},
+          "inheritedFrom": "Polymer.IronFormElementBehavior"
+        },
+        {
+          "type": "CustomEvent",
+          "name": "iron-form-element-unregister",
+          "description": "iron-form-element-unregister",
+          "metadata": {},
+          "inheritedFrom": "Polymer.IronFormElementBehavior"
+        },
+        {
+          "type": "CustomEvent",
+          "name": "value-changed",
+          "description": "Fired when the `value` property changes.",
+          "metadata": {},
+          "inheritedFrom": "Polymer.IronFormElementBehavior"
+        },
+        {
+          "type": "CustomEvent",
+          "name": "invalid-changed",
+          "description": "Fired when the `invalid` property changes.",
+          "metadata": {},
+          "inheritedFrom": "Polymer.IronValidatableBehavior"
+        },
+        {
+          "type": "CustomEvent",
+          "name": "iron-change",
+          "description": "iron-change",
+          "metadata": {},
+          "inheritedFrom": "Polymer.IronCheckedElementBehavior"
+        },
+        {
+          "type": "CustomEvent",
+          "name": "checked-changed",
+          "description": "Fired when the `checked` property changes.",
+          "metadata": {},
+          "inheritedFrom": "Polymer.IronCheckedElementBehavior"
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []
