@@ -1,5 +1,4 @@
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/fxedel/toggle-icon)
-  
 [![Published on Vaadin  Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/fxedeltoggle-icon)
 [![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/fxedeltoggle-icon.svg)](https://vaadin.com/directory/component/fxedeltoggle-icon)
 
