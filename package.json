@@ -1,0 +1,39 @@
+{
+  "description": "An extremly powerful and customizable switch that looks like a paper-icon-button built for the Polymer framework",
+  "keywords": [
+    "web-components",
+    "polymer",
+    "switch",
+    "icon",
+    "CSS animation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fxedel/toggle-icon.git"
+  },
+  "homepage": "http://fxedel.github.io/toggle-icon/toggle-icon/",
+  "name": "polymer-toggle-icon",
+  "version": "2.0.0",
+  "resolutions": {
+    "inherits": "2.0.3",
+    "samsam": "1.1.3",
+    "supports-color": "3.1.2",
+    "type-detect": "1.0.0"
+  },
+  "main": "toggle-icon.js",
+  "author": "Felix Edelmann",
+  "license": "MIT",
+  "dependencies": {
+    "@polymer/iron-checked-element-behavior": "^3.0.0-pre.18",
+    "@polymer/paper-behaviors": "^3.0.0-pre.18",
+    "@polymer/paper-icon-button": "^3.0.0-pre.18",
+    "@polymer/paper-styles": "^3.0.0-pre.18",
+    "@polymer/polymer": "^3.0.0"
+  },
+  "devDependencies": {
+    "@polymer/iron-component-page": "^3.0.0-pre.18",
+    "@polymer/test-fixture": "^3.0.0-pre.18",
+    "wct-browser-legacy": "^1.0.1",
+    "@webcomponents/webcomponentsjs": "^2.0.0"
+  }
+}

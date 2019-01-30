@@ -17,7 +17,7 @@ Here's a gif that shows five icon-toggle elements which are toggled by setting t
 If you have bower installed, run:
 
 ```
-bower install toggle-icon
+npm install polymer-toggle-icon
 ```
 
 Else, you can clone this repository.
