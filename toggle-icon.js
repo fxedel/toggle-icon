@@ -1,19 +1,11 @@
-<!--
+/*
 Copyright (c) 2016-17 Felix Edelmann. 
 The project is distributed under the MIT License, so you can use or modify the code as you like, you only need to name the author (e. g. by adding a link to the GitHub repository).
 
 Source code: https://github.com/fxedel/toggle-icon
 Component page / demo: http://fxedel.github.io/toggle-icon/
--->
-
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-checked-element-behavior/iron-checked-element-behavior.html">
-<link rel="import" href="../paper-icon-button/paper-icon-button.html">
-
-<link rel="import" href="../shadycss/apply-shim.html">
-
-
-<!--
+*/
+/**
 An extremly powerful and customizable switch that looks like a paper-icon-button. Use `toggleIcon.checked` to get the toggle-icon's status in JavaScript.
 
 The very basic usage without user feedback to show whether the switch is checked or not only needs the `icon` (or `icon-src`) property:
@@ -65,66 +57,72 @@ Custom colors and backgrounds do animate if they change in checked state by usin
 
 @element toggle-icon
 @demo demo/index.html
--->
+*/
 
-<dom-module id="toggle-icon">
-  <template>
-    <style>
-      :host {
-        display: inline-block;
-        position: relative;
-        transition: all .3s;
-        @apply --toggle-icon;
-      }
+import '@webcomponents/shadycss/entrypoints/apply-shim.js';
 
-      :host([checked]) {
-        @apply --toggle-icon-checked;
-        @apply --toggle-icon-active;
-      }
+import { PolymerElement } from '@polymer/polymer/polymer-element.js';
+import {mixinBehaviors} from '@polymer/polymer/lib/legacy/class.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 
-      #unchecked, #checked {
-        transition: opacity .3s;
-        @apply --toggle-icon-buttons;
-      }
+import { IronCheckedElementBehavior } from '@polymer/iron-checked-element-behavior/iron-checked-element-behavior.js';
+import '@polymer/paper-icon-button/paper-icon-button.js';
 
-      #checked {
-        position: absolute;
-        left: 0;
-        top: 0;
-      }
+class ToggleIcon extends mixinBehaviors(IronCheckedElementBehavior, PolymerElement) {
+  static get is() {
+    return 'toggle-icon';
+  }
 
-      :host(:not([checked])) #checked,
-      :host([checked]) #unchecked {
-        opacity: 0;
-        pointer-events: none;
-      }
-    </style>
+  static get template() {
+    return html`
+      <style>
+        :host {
+          display: inline-block;
+          position: relative;
+          transition: all .3s;
+          @apply --toggle-icon;
+        }
 
-    <paper-icon-button
-      id="unchecked"
-      icon="{{icon}}"
-      src="{{iconSrc}}"
-      disabled$="{{disabled}}">
-    </paper-icon-button>
+        :host([checked]) {
+          @apply --toggle-icon-checked;
+          @apply --toggle-icon-active;
+        }
 
-    <paper-icon-button
-      id="checked"
-      icon="{{_computeIconChecked(icon, iconChecked, iconActive)}}"
-      src="{{_computeIconSrcChecked(iconSrc, iconSrcChecked, iconSrcActive)}}"
-      disabled$="{{disabled}}">
-    </paper-icon-button>
+        #unchecked, #checked {
+          transition: opacity .3s;
+          @apply --toggle-icon-buttons;
+        }
 
-  </template>
+        #checked {
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
 
-</dom-module>
+        :host(:not([checked])) #checked,
+        :host([checked]) #unchecked {
+          opacity: 0;
+          pointer-events: none;
+        }
+      </style>
 
-<script>
+      <paper-icon-button
+        id="unchecked"
+        icon="{{icon}}"
+        src="{{iconSrc}}"
+        disabled\$="{{disabled}}">
+      </paper-icon-button>
 
-  Polymer({
+      <paper-icon-button
+        id="checked"
+        icon="{{_computeIconChecked(icon, iconChecked, iconActive)}}"
+        src="{{_computeIconSrcChecked(iconSrc, iconSrcChecked, iconSrcActive)}}"
+        disabled\$="{{disabled}}">
+      </paper-icon-button>`;
+  }
 
-    is: 'toggle-icon',
-
-    properties: {
+  static get properties() {
+    return {
       /**
        * Changes on click, like a checkbox. Doesn't change when disabled.
        */
@@ -212,84 +210,82 @@ Custom colors and backgrounds do animate if they change in checked state by usin
       disabled: {
         type: Boolean,
         value: false,
-      },
-
-    },
-
-    behaviors: [
-      Polymer.IronCheckedElementBehavior,
-    ],
-
-
-    listeners: {
-      'click': 'toggleChecked',
-      'iron-change': '_checkedChanged',
-    },
-
-
-    /**
-     * Toggle `checked`
-     */
-    toggleChecked: function() {
-      if (!this.disabled) {
-        this.checked = !this.checked;
       }
-    },
+    }
+  }
 
-    /**
-     * Compute and return the checked paper-icon-button's `icon` property.
-     * Use `iconChecked` if present, else `iconActive` if present (_used for backwards compatibility_), else `icon`.
-     */
-    _computeIconChecked: function(icon, iconChecked, iconActive) {
-      return iconChecked ? iconChecked : (iconActive ? iconActive : icon);
-    },
+  ready() {
+    super.ready();
+    this._addListeners()
+  }
 
-    /**
-     * Compute and return the checked paper-icon-button's `src` property.
-     * Use `iconSrcChecked` if present, else `iconSrcActive` if present (_used for backwards compatibility_), else `iconSrc`.
-     */
-    _computeIconSrcChecked: function(iconSrc, iconSrcChecked, iconSrcActive) {
-      return iconSrcChecked ? iconSrcChecked : (iconSrcActive ? iconSrcActive : iconSrc);
-    },
+  _addListeners() {
+    this.addEventListener('click', this.toggleChecked)
+    this.addEventListener('iron-change', this._updateTransform);
+  }
 
-    /**
-     * Compute the transform property depending on the specified animations in `animation`.
-     */
-    _computeTransform: function() {
-      if (this.animation === undefined || this.animation == null) {
-        return '';
-      }
+  /**
+   * Toggles `checked` if the element is not disabled. Usually called when clicked.
+   */
+  toggleChecked() {
+    if (!this.disabled) {
+      this.checked = !this.checked;
+    }
+  }
 
-      var transform = '';
+  /**
+   * Compute and return the checked paper-icon-button's `icon` property.
+   * Use `iconChecked` if present, else `iconActive` if present (_used for backwards compatibility_), else `icon`.
+   */
+  _computeIconChecked(icon, iconChecked, iconActive) {
+    return iconChecked ? iconChecked : (iconActive ? iconActive : icon);
+  }
 
-      if (this.animation.indexOf('flip-vertical') > -1) {
-        transform += ' scale(1, -1)';
-      }
-      if (this.animation.indexOf('flip-horizontal') > -1) {
-        transform += ' scale(-1, 1)';
-      }
-      if (this.animation.indexOf('rotate') > -1) {
-        transform += ' rotate(' + this.rotation + 'deg)';
-      }
+  /**
+   * Compute and return the checked paper-icon-button's `src` property.
+   * Use `iconSrcChecked` if present, else `iconSrcActive` if present (_used for backwards compatibility_), else `iconSrc`.
+   */
+  _computeIconSrcChecked(iconSrc, iconSrcChecked, iconSrcActive) {
+    return iconSrcChecked ? iconSrcChecked : (iconSrcActive ? iconSrcActive : iconSrc);
+  }
 
-      return transform;
-    },
+  /**
+   * Compute the transform property depending on the specified animations in `animation`.
+   */
+  _computeTransform() {
+    if (this.animation === undefined || this.animation == null) {
+      return '';
+    }
 
-    /**
-     * If element is checked, apply CSS transforms (specified in `animation`).
-     */
-    _checkedChanged: function() {
-      this.transform(this.checked ? this._computeTransform() : '');
-      this.active = this.checked;
-    },
+    var transform = '';
 
-    /**
-     * _Used for backwards compatibility._
-     * When `active` changes, set `checked` to this value
-     */
-    _activeChanged: function() {
-      this.checked = this.active;
-    },
-  });
+    if (this.animation.indexOf('flip-vertical') > -1) {
+      transform += ' scale(1, -1)';
+    }
+    if (this.animation.indexOf('flip-horizontal') > -1) {
+      transform += ' scale(-1, 1)';
+    }
+    if (this.animation.indexOf('rotate') > -1) {
+      transform += ' rotate(' + this.rotation + 'deg)';
+    }
 
-</script>
+    return transform;
+  }
+
+  /**
+   * If element is checked, apply CSS transforms (specified in `animation`).
+   */
+  _updateTransform() {
+    this.transform(this.checked ? this._computeTransform() : '');
+  }
+
+  /**
+   * _Used for backwards compatibility._
+   * When `active` changes, set `checked` to this value
+   */
+  _activeChanged() {
+    this.checked = this.active;
+  }
+}
+
+window.customElements.define(ToggleIcon.is, ToggleIcon);
